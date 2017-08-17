@@ -1,0 +1,10 @@
+{
+    "code": 0,
+    "list": [
+        {"id": 1, "location1": "长春1", "location2": "吉林1"},
+        {"id": 2, "location1": "长春2", "location2": "吉林2"},
+        {"id": 3, "location1": "长春3", "location2": "吉林3"},
+        {"id": 4, "location1": "长春4", "location2": "吉林4"},
+        {"id": 5, "location1": "长春5", "location2": "吉林5"}
+    ]
+}

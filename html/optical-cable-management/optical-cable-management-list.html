@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>光缆段列表</title>
+    <!--#include file="/html/common/head.html"-->
+</head>
+<body>
+    <!--#include file="/html/common/header.html"-->
+    <div class="page clearfix">
+        <div class="holder">
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#"><i class="fa fa-home"></i>&nbsp;首页</a></li>
+                            <li class="active">设置光缆段</li>
+                        </ol>
+                        <!-- <div class="alert alert-success J_tip" role="alert">提示信息!</div> -->
+                        <input type="hidden" class="pageDataCount" value="10">
+                    </div>
+                    <div class="col-sm-12 margin-top--10">
+                        <form class="form-horizontal J_searchForm">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h4>搜索</h4>
+                                </div>
+                                <div class="panel-body">        
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label">A地市</label>
+                                        <div class="col-sm-2">
+                                            <select name="A" class="form-control new185 J_aCity">
+                                                <option value="-1">请选择</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-1 control-label">Z地市</label>
+                                        <div class="col-sm-2">
+                                            <select name="Z" class="form-control new185 J_zCity">
+                                                <option value="-1">请选择</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-1 control-label">传输系统</label>
+                                        <div class="col-sm-2">
+                                            <select name="transmissionSystem" multiple="multiple" size="3" class="form-controls new185 J_transmissionSystem">
+                                                <option value="-1">请选择</option>
+                                                <option value="1">中环WDM80</option>
+                                                <option value="2">中环WDM80</option>
+                                                <option value="3">中环WDM80</option>
+                                            </select>
+                                        </div>       
+                                        <label class="col-sm-1 control-label">业务类别</label>
+                                        <div class="col-sm-2">
+                                            <select class="form-controls new185 J_type" multiple="multiple" size="3" name="type">
+                                                <option value="-1">请选择</option>
+                                                <option value="1">IDC</option>
+                                                <option value="2">IP承载B网</option>
+                                                <option value="3">数据网</option>
+                                            </select>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 margin-bottom-10 margin-top--10 padding-left">
+                                <button class="btn btn-info btn-radius-no J_search" type="submit"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="panel panel-info">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" name="selectAll" class="J_selectAll"></th>
+                                                <th>A地市</th>
+                                                <th>Z地市</th>
+                                                <th>简单路由</th>
+                                                <th>电路代号</th>
+                                                <th>业务类别</th>
+                                                <th>电路总数</th>
+                                                <th>传输系统</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="J_template"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-4">
+                                    <div class="btn-toolbar">
+                                        <button class="btn-info btn-radius-no btn J_confirm" type="button"><i class="fa fa-save"></i>&nbsp;确认</button>
+                                        <button class="btn-default btn" onclick="window.history.go(-1);" type="button"><i class="fa fa-undo"></i>&nbsp;取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#include file="/html/common/footer.html"-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            /**
+             * 全选事件
+             */
+            $(".J_selectAll").click(function(){
+                $('input[name="select"]').prop("checked", this.checked);
+                
+            });
+            $(document).on('click', "input[name='select']", function(){
+                var selected = $("input[name='select']");
+                if(selected.length == $("input[name='select']:checked").length){
+                    $(".J_selectAll").prop("checked", true);
+                }else{
+                    $(".J_selectAll").prop("checked", false);
+                }
+            });
+
+            /**
+             * 查询发送数据
+             */
+            $('.J_search').click(function(){
+                var
+                    aCity = $('.J_aCity').val(),//JSON.stringify
+                    zCity = $('.J_zCity').val(),
+                    transmissionSystem = $('.J_transmissionSystem').val(),
+                    type = $('.J_type').val(),
+                    idList = [],
+                    str = '',
+                    form = {
+                        aCity: aCity,
+                        zCity: zCity,
+                        transmissionSystem: transmissionSystem,
+                        type: type
+                    };
+
+                $("input[name='select']:checked").each(function(){ 
+                    idList.push($(this).parents("tr").attr("data-id")); 
+                });
+                jQuery.extend(form,{idList: idList});
+                $.ajax({
+                    type: "GET",
+                    url: jQuery.url.opticalCableManagement.selectData,
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    data: JSON.stringify(form),     //JSON.stringify
+                    dataType: "json",
+                    success: function (rs) {
+                        $('#J_template').empty();
+                        if( rs.code == 0){  
+                            $.each(rs.list, function(index, item){
+                                str += '<tr data-id="'+ item.id +'">\
+                                            <td>';
+                                if(item.check == 1){
+                                    str += '<input type="checkbox" name="select" class="J_select" checked="checked">';
+                                }else{
+                                    str += '<input type="checkbox" name="select" class="J_select">';
+                                }
+                                str += '</td>\
+                                        <td>'+ item.aCity +'</td>\
+                                        <td>'+ item.zCity +'</td>\
+                                        <td>'+ item.simpleRouting +'</td>\
+                                        <td>'+ item.circuitCode +'</td>\
+                                        <td>'+ item.type +'</td>\
+                                        <td>'+ item.circuitCount +'</td>\
+                                        <td>'+ item.transmissionSystem +'</td>\
+                                    </tr>';
+                            }); 
+                            $('#J_template').append(str);
+                            //暂无数据提示
+                            var tr = $('#J_template').children();
+                            if(tr.length == 0){
+                                $('#J_template').append('<tr><td colspan="8">暂无数据</td></tr>');
+                            }
+                        }else{                
+                            location.reload();
+                        }
+                    },
+                    error: function (message) {
+                        alert(message);
+                    }
+                });
+                    
+            });
+
+            /**
+             * 列表页初始数据
+             */
+            brushData();
+            function brushData(){
+                var
+                    str = '',
+                    form = {data: 1};
+
+                $.ajax({
+                    type: "GET",
+                    url: jQuery.url.opticalCableManagement.initData,
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    data: form,     //JSON.stringify
+                    dataType: "json",
+                    success: function (rs) {
+                        $('#J_template').empty();
+                        if( rs.code == 0){  
+                            $.each(rs.list, function(index, item){
+                                str += '<tr data-id="'+ item.id +'">\
+                                            <td><input type="checkbox" name="select" class="J_select" checked="checked"></td>\
+                                            <td>'+ item.aCity +'</td>\
+                                            <td>'+ item.zCity +'</td>\
+                                            <td>'+ item.simpleRouting +'</td>\
+                                            <td>'+ item.circuitCode +'</td>\
+                                            <td>'+ item.type +'</td>\
+                                            <td>'+ item.circuitCount +'</td>\
+                                            <td>'+ item.transmissionSystem +'</td>\
+                                        </tr>';
+                            }); 
+                            $('#J_template').append(str);
+                            $(".J_selectAll").prop("checked", true);
+                            //暂无数据提示
+                            var tr = $('#J_template').children();
+                            if(tr.length == 0){
+                                $('#J_template').append('<tr><td colspan="8">暂无数据</td></tr>');
+                                $(".J_selectAll").prop("checked", false);
+                            }
+                        }else{                
+                            location.reload();
+                        }
+                    },
+                    error: function (message) {
+                        alert(message);
+                    }
+                });
+            }
+
+            /**
+             * 点击确认事件
+             */
+            $('.J_confirm').click(function(){
+                window.location.href = "#";
+            });
+        });
+    </script>
+</body>
+</html>

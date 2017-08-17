@@ -1,0 +1,13 @@
+{
+    "code": 0,
+    "list": [
+        {"id": 1,"check": "1", "aCity": "长春11","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 2,"check": "1", "aCity": "长春22","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 3,"check": "1", "aCity": "长春33","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 4,"check": "2", "aCity": "长春44","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 5,"check": "2", "aCity": "长春55","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 6,"check": "2", "aCity": "长春66","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"},
+        {"id": 7,"check": "2", "aCity": "长春77","zCity": "白山", "simpleRouting": "长春-松源-白山", "circuitCode": "长白WDM80", "type": "IDC", "circuitCount": "2", "transmissionSystem": "中环WDM80"}
+    ],
+    "errMsg": "刷新失败！"
+}

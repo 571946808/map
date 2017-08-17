@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />        
+        <title>吉林省传输网络资源图</title>
+    </head>
+    <body>
+        <div class="page clearfix">
+            <div class="row">
+                
+                <div class="col-sm-7">
+                    <h1>吉林省传输网络资源图</h1>
+                    <div id="jilin_map" >
+                    </div>
+                    <div class="top">
+                        <ul class="borderstyle">
+                            <li class="yellow"></li>
+                            <li class="green0"></li>
+                            <li class="green1"></li>
+                            <li class="purple0"></li>
+                            <li class="purple1"></li>
+                            <li class="grey"></li>
+                        </ul>
+                        <ul class="textstyle">
+                            <li class="black">新一级光缆</li>
+                            <li class="blue">原网通一级光缆</li>
+                            <li class="blue">原网通二级光缆</li>
+                            <li class="red">原联通一级光缆</li>
+                            <li class="red">原联通二级光缆</li>
+                            <li class="blue">二级架空光缆（或部分架空）</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-5 tablewidth">
+                    <div class="btnstyle">
+                        <a href="javascript:;" class="btn btn-info sele">选择影响光缆段</a>
+                        <a href="javascript:;" class="btn btn-info mark">清空标记所有影响段</a>
+                    </div>
+                    <div class="panel panel-info selectBody hidden  tablestyle">
+<!--                         <div class="panel-heading">
+                            <h4>选择影响光缆段</h4>
+                        </div> -->
+                        <div class="panel-body">
+                            <form class="form-horizontal margin-bottom--10">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">
+                                        <span class="requires">*&nbsp;</span>请选择传输系统
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control selectSystem">
+                                            <option value="">请选择</option>
+                                            <option value="0">西环WDM80λ（100G）-1</option>
+                                            <option value="-1">请选择2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" class="selectAll"></th>
+                                                <th>光缆段所在地市1</th>
+                                                <th>光缆段所在地市2</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="J_template"></tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="javascript:;" class="btn btn-success ok">确认</a>
+                            <a href="javascript:;" class="btn btn-warning cancel">取消</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>        
+    </body>
+    <script type="text/javascript" src="js/echarts.min.js" ></script>
+    <script type="text/javascript" src="js/jquery.min.js" ></script>
+    <script type="text/javascript" src="js/tool/bootstrap/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="/js/index.js" ></script>
+</html>

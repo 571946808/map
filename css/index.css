@@ -1,0 +1,88 @@
+body{
+    font-size: 12px;
+}
+a{
+    margin-right: 10px;
+}
+#jilin_map{
+    width:857px;
+    height:618px;
+    margin:30px auto;
+    position: absolute;
+    top: 27px;
+    left:90px;
+    z-index:-1;
+}
+.requires{
+    color: #ff2828;
+}
+.tablewidth{
+    width: 28% !important;
+}
+.btnstyle{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.tablestyle{
+    margin-top:20px;
+    margin-left:50px;
+}
+.renderTable{
+    width: 220px !important;
+}
+h1{
+    margin-left: 60%;
+    margin-top: 5%;
+}
+.top{
+    width: 350px;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+    position: absolute;
+    top:540px;
+    left:50px;
+}
+
+.borderstyle{
+    width: 130px;
+    float: left;
+    list-style-type: none;
+    margin-top: 4px;
+}
+.borderstyle li{
+    padding: 6.5px 0;
+}
+.textstyle{
+    float: right;
+    width: 220px;
+    list-style-type: none;
+}
+.yellow
+{
+    border-top: 5px solid #ffff00;
+}
+.green0{
+    border-top: 5px solid #27f56a;
+}
+.green1
+{
+    border-top: 3px solid #27f56a;
+}
+.grey{
+    border-top: 3px solid #999;
+}
+.purple0{
+    border-top: 5px solid #7030a0;
+}
+.purple1{
+    border-top: 3px solid #7030a0;
+}
+.black{
+    color: #000;
+}
+.blue{
+    color: #6ea6dd;
+}
+.red{
+    color: #ff2828;
+}
