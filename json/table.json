@@ -1,6 +1,15 @@
 {
     "code": 0,
     "list": [
-        {"number": "1", "location1": "吉林", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "白山", "IDC2": "1/2", "IP2": "0", "net2": "0", "tablex": 560, "tabley": 160, "startX": 455, "startY": 290, "endX": 550, "endY": 200}
+        {"number": "1", "location1": "吉林", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "口前",  "IDC2": "1/2", "IP2": "0", "net2": "0",
+        "tablex": 580, "tabley": 160, "startX": 455, "startY": 290, "endX": 550, "endY": 200},
+        {"number": "2", "location1": "白城", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "大安",  "IDC2": "1/2", "IP2": "0", "net2": "0",
+        "tablex": 350, "tabley": 40, "startX": 455, "startY": 290, "endX": 370, "endY": 50},
+        {"number": "1", "location1": "四平", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "太平川",  "IDC2": "1/2", "IP2": "0", "net2": "0",
+        "tablex": 28, "tabley": 310, "startX": 455, "startY": 290, "endX": 550, "endY": 200},
+        {"number": "2", "location1": "通化", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "梅河口",  "IDC2": "1/2", "IP2": "0", "net2": "0",
+        "tablex": 100, "tabley": 460, "startX": 455, "startY": 290, "endX": 370, "endY": 50},
+        {"number": "2", "location1": "白山", "IDC1": "1/2", "IP1": "0", "net1": "0", "location2": "延吉",  "IDC2": "1/2", "IP2": "0", "net2": "0",
+        "tablex": 750, "tabley": 550, "startX": 455, "startY": 290, "endX": 370, "endY": 50}
     ]
 }

@@ -3,14 +3,15 @@ body{
 }
 a{
     margin-right: 10px;
+    margin-top:10px;
 }
 #jilin_map{
     width:857px;
-    height:618px;
+    height:660px;
     margin:30px auto;
     position: absolute;
-    top: 27px;
-    left:90px;
+    top: 20%;
+    left:10%;
     z-index:-1;
 }
 .requires{
@@ -18,10 +19,11 @@ a{
 }
 .tablewidth{
     width: 28% !important;
+    float: right !important;
+    margin-right: 3% !important;
 }
 .btnstyle{
     margin-top: 100px;
-    margin-left: 50px;
 }
 .tablestyle{
     margin-top:20px;
@@ -31,16 +33,18 @@ a{
     width: 220px !important;
 }
 h1{
-    margin-left: 60%;
-    margin-top: 5%;
+    float: right;
+    margin-top: 4%;
 }
 .top{
     width: 350px;
     font-size: 12px;
     font-family: 'Microsoft YaHei';
     position: absolute;
-    top:540px;
-    left:50px;
+    top: 640%;
+    left:10%;
+   /* top:540px;
+    left:50px;*/
 }
 
 .borderstyle{

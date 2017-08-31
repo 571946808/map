@@ -3,6 +3,9 @@
 <head>
     <title>光缆段列表</title>
     <!--#include file="/html/common/head.html"-->
+    <script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/prettify.css" type="text/css"/>
 </head>
 <body>
     <!--#include file="/html/common/header.html"-->
@@ -46,17 +49,18 @@
                                         </div>
                                         <label class="col-sm-1 control-label">传输系统</label>
                                         <div class="col-sm-2">
-                                            <select name="transmissionSystem" multiple="multiple" size="3" class="form-controls new185 J_transmissionSystem">
-                                                <option value="-1">请选择</option>
-                                                <option value="1">中环WDM80</option>
-                                                <option value="2">中环WDM80</option>
-                                                <option value="3">中环WDM80</option>
+                                            <select id="transmissionSystem" multiple="multiple">
+                                                <option value="1">西环WDM80λ（100G）-1</option>
+                                                <option value="2">西环WDM80λ（100G）-1</option>
+                                                <option value="3">西环WDM80λ</option>
+                                                <option value="4">西环WDM80λ</option>
+                                                <option value="5">西环WDM80λ</option>
+                                                <option value="6">西环WDM80λ</option>
                                             </select>
                                         </div>       
                                         <label class="col-sm-1 control-label">业务类别</label>
                                         <div class="col-sm-2">
-                                            <select class="form-controls new185 J_type" multiple="multiple" size="3" name="type">
-                                                <option value="-1">请选择</option>
+                                            <select id="type" multiple="multiple">
                                                 <option value="1">IDC</option>
                                                 <option value="2">IP承载B网</option>
                                                 <option value="3">数据网</option>
@@ -111,11 +115,16 @@
     <script type="text/javascript">
         $(document).ready(function(){
             /**
+             * 搜索项多选下拉框
+             */
+            $('#transmissionSystem').multiselect();
+            $('#type').multiselect();
+
+            /**
              * 全选事件
              */
             $(".J_selectAll").click(function(){
-                $('input[name="select"]').prop("checked", this.checked);
-                
+                $('input[name="select"]').prop("checked", this.checked);                
             });
             $(document).on('click', "input[name='select']", function(){
                 var selected = $("input[name='select']");
@@ -133,8 +142,8 @@
                 var
                     aCity = $('.J_aCity').val(),//JSON.stringify
                     zCity = $('.J_zCity').val(),
-                    transmissionSystem = $('.J_transmissionSystem').val(),
-                    type = $('.J_type').val(),
+                    transmissionSystem = $('#transmissionSystem').val(),
+                    type = $('#type').val(),
                     idList = [],
                     str = '',
                     form = {
