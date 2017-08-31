@@ -302,7 +302,6 @@ $(function(){
                         window.series.push(line);
                     });                    
                     renderTable();
-                    map(window.series);
                 }
 
             },
@@ -408,6 +407,7 @@ $(function(){
                         window.series.push(line);
                     });
                 }
+                return map(window.series);
             },
             error: function(message){
 
